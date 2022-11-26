@@ -58,16 +58,51 @@
     service: name=firewalld state=restarted
   - name: Enabling IPV6
     shell: sysctl net.ipv6.conf.lo.disable_ipv6=0 ; sysctl net.ipv6.conf.all.disable_ipv6=0
-  - name: Adding the phpinfo.tar.gz 
+  - name: Adding the phpinfo.tar.gz by Kuoying Wang
     copy:
       src: phpinfo.tar.gz
       dest: /var/www/html
       owner: root
       group: root
       mode: "0775"
-  - name: Adding the haproxy.tar.gz 
+  - name: Adding the haproxy.tar.gz by Kuoying Wang
     copy:
       src: haproxy.tar.gz
+      dest: /var/www/html
+      owner: root
+      group: root
+      mode: "0775"
+  - name: Adding the hosts.j2 by Kuoying Wang
+    copy:
+      src: hosts.j2
+      dest: /var/www/html
+      owner: root
+      group: root
+      mode: "0775"
+  - name: Adding the hwreport.txt by Kuoying Wang
+    copy:
+      src: hwreport.txt
+      dest: /var/www/html
+      owner: root
+      group: root
+      mode: "0775"
+  - name: Adding the user_list.yml by Kuoying Wang
+    copy:
+      src: user_list.yml
+      dest: /var/www/html
+      owner: root
+      group: root
+      mode: "0775"
+  - name: Adding the salaries.yml password is 'qweqwe' by Kuoying Wang
+    copy:
+      src: salaries.yml
+      dest: /var/www/html
+      owner: root
+      group: root
+      mode: "0775"
+  - name: Adding the RPM-GPG-KEY-redhat-release by Kuoying Wang
+    copy:
+      src: RPM-GPG-KEY-redhat-release
       dest: /var/www/html
       owner: root
       group: root

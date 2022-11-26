@@ -45,10 +45,10 @@
       owner: vagrant
       group: vagrant
       mode: "0775"
-  - name: Adding the ansible.cfg
+  - name: Adding the ansible.cfg by Kuoying Wang
     copy:
       src: ansible.cfg
-      dest: /home/vagrant
+      dest: /home/vagrant/ansible.cfg
       owner: vagrant
       group: vagrant
       mode: "0775"

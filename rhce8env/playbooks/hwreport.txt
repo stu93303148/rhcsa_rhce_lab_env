@@ -1,0 +1,5 @@
+my_SYS=hostname
+my_BIOS=biosversion
+my_MEMORY=memory
+my_VDA=vdasize
+my_VDB=vdbsize
