@@ -30,17 +30,17 @@
     file: 
       path: /etc/yum.repos.d/*
       state: absent
-  - name: Creating Temporary Repo File
-    file:
-      path: /etc/yum.repos.d/ipa.repo
-      state: touch
-      mode: 0755
-  - name: Building Repo File
-    copy:
-      dest: /etc/yum.repos.d/ipa.repo
-      content: "[base]\nname=Base\nbaseurl=http://repo/BaseOS\ngpgcheck=0\nenabled=1\n\n[apps]\nname=Apps\nbaseurl=http://repo/AppStream\ngpgcheck=0\nenabled=1"
-      force: yes
-    tags: repo
+#  - name: Creating Temporary Repo File
+#    file:
+#      path: /etc/yum.repos.d/ipa.repo
+#      state: touch
+#      mode: 0755
+#  - name: Building Repo File
+#    copy:
+#      dest: /etc/yum.repos.d/ipa.repo
+#      content: "[base]\nname=Base\nbaseurl=http://repo/BaseOS\ngpgcheck=0\nenabled=1\n\n[apps]\nname=Apps\nbaseurl=http://repo/AppStream\ngpgcheck=0\nenabled=1"
+#      force: yes
+#    tags: repo
   - name: Configuring network
     command: nmcli con mod 'System eth1' ipv4.addresses 192.168.55.205/24 ipv4.gateway 192.168.55.1 ipv4.method manual
   - name: Restarting Network
@@ -77,6 +77,11 @@
     file: 
       path: /etc/yum.repos.d/*
       state: absent
+  - name: Stop firewalld by Kuoying Wang
+    service:
+      name: firewalld
+      state: stopped
+      enabled: no
   - name: Building Welcome Message
     blockinfile:
       dest: /etc/profile.d/welcome.sh
