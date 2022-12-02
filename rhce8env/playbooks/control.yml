@@ -45,13 +45,20 @@
       owner: vagrant
       group: vagrant
       mode: "0775"
+  - name: Create a directory if it does not exist by Kuoying Wang
+    file:
+      path: /etc/ansible
+      state: directory
+      owner: vagrant
+      group: vagrant
+      mode: '0777'
   - name: Adding the ansible.cfg by Kuoying Wang
     copy:
       src: ansible.cfg
-      dest: /home/vagrant/ansible.cfg
+      dest: /etc/ansible/ansible.cfg
       owner: vagrant
       group: vagrant
-      mode: "0775"
+      mode: "0777"
   - name: Building Repo File
     copy:
       dest: /etc/yum.repos.d/ipa.repo

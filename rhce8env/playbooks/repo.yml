@@ -79,23 +79,19 @@
       owner: root
       group: root
       mode: "0775"
-  - name: Adding the hwreport.txt by Kuoying Wang
+  - name: Adding the hwreport.empty by Kuoying Wang
     copy:
-      src: hwreport.txt
-      dest: /var/www/html
-      owner: root
-      group: root
-      mode: "0775"
-  - name: Adding the user_list.yml by Kuoying Wang
-    copy:
-      src: user_list.yml
+      src: hwreport.empty
       dest: /var/www/html
       owner: root
       group: root
       mode: "0775"
   - name: Adding the salaries.yml password is 'qweqwe' by Kuoying Wang
+    shell: |+
+      echo -e '$ANSIBLE_VAULT;1.1;AES256\n31303064393866346437383639356130613435393133646136633439613364393232393034363038\n6666653661646665666461646438643238613838373036320a643031336232346231653963633834\n34343663333664323963613335343236333161646165333232396533636262343034626132323661\n3130393437363834350a643262663739646230663138306666326232623864643232393638323862\n39643863303733353733623366373562366534383536376235663637643535663163' > /var/www/html/salaries.yml
+  - name: Adding the user_list.yml by Kuoying Wang
     copy:
-      src: salaries.yml
+      src: user_list.yml
       dest: /var/www/html
       owner: root
       group: root
